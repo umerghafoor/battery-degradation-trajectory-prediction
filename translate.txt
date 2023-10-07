@@ -1,0 +1,35 @@
+Schritt - Step
+Zustand - State
+Zeit - Time
+Programmdauer - Program Duration
+Schrittdauer - Step Duration
+Zyklus - Cycle
+Zyklusebene - Cycle Level
+Prozedur - Procedure
+Prozedurebene - Procedure Level
+StartFreq - Start Frequency
+EndFreq - End Frequency
+SetFreq - Set Frequency
+AAcMax - Maximum AAc
+VAcMin - Minimum VAc
+VAcMax - Maximum VAc
+mvIdeal - Ideal mv (millivolt)
+Go - Go
+AACStart - AAC Start
+MinIntervalTime - Minimum Interval Time
+CountOfPeriods - Count of Periods
+Status - Status
+EisError - Eis Error
+U1 - U1
+Zreal1 - Real Z1
+Zimg1 - Imaginary Z1
+ActFreq - Actual Frequency
+UIdeal - Ideal U (Voltage)
+AStart - A Start
+MinDuration - Minimum Duration
+MinPeriods - Minimum Periods
+RemTime - Remaining Time
+VRelativ - Relative Voltage
+AAmplitude - Amplitude of A
+Betrag - Magnitude
+Phase - Phase
