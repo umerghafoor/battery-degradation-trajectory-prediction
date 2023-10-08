@@ -36,7 +36,7 @@ def plotAll(data_frame):
     plt.show()
 
 
-csv_file = "zyk.csv"
+csv_file = "data\e production=ep sanyo 002=ZYK=Massenalterung=2013-01-09 150506=TBA_Zyk=TS010620  Format01=Kreis 5-064.csv"
 df = pd.read_csv(csv_file, skiprows=[1])  # Skip the second row with headers
 
 print( df.head())
