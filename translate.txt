@@ -36,29 +36,21 @@ Phase - Phase
 
 //////////////////////////////////////////////////////////
 
-Schritt - Step
-Zustand - State
-Zeit - Time
-Programmdauer - Program Duration
-Schrittdauer - Step Duration
-Zyklus - Cycle
-Zyklusebene - Cycle Level
-Prozedur - Procedure
-Prozedurebene - Procedure Level
-AhAkku - Ah (Ampere-hour) Battery
-AhLad - Ah (Ampere-hour) Charge
-AhEla - Ah (Ampere-hour) Discharge
-AhStep - Ah (Ampere-hour) Step
-Energie - Energy
-WhStep - Wh (Watt-hour) Step
-Spannung - Voltage
-Strom - Current
-Temp1 - Temperature 1
-Ah - Ampere-hour
-AhCha - Ampere-hour Charge
-AhDch - Ampere-hour Discharge
-Wh - Watt-hour
-WhStep - Watt-hour Step
-V - Voltage
-A - Ampere
-TBAC1 - (Not a common term; context needed for translation)
+1   Schritt - Step
+2   Zustand - State
+3   Zeit - Time
+4   Programmdauer - Program Duration
+5   Schrittdauer - Step Duration
+6   Zyklus - Cycle
+7   Zyklusebene - Cycle Level
+8   Prozedur - Procedure
+9   Prozedurebene - Procedure Level
+10    AhAkku - Ah (Ampere-hour) Battery
+11    AhLad - Ah (Ampere-hour) Charge
+12    AhEla - Ah (Ampere-hour) Discharge
+13    AhStep - Ah (Ampere-hour) Step
+14    Energie - Energy
+15    WhStep - Wh (Watt-hour) Step
+16    Spannung - Voltage
+17    Strom - Current
+18    Temp1 - Temperature 1

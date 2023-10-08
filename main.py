@@ -1,17 +1,21 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def plot(columns_to_plot):
-    for col in columns_to_plot:
+def plot(columns_to_plot, df):
+    for col_idx in columns_to_plot:
+        col_name = df.columns[col_idx]
         plt.figure(figsize=(10, 6))  # Adjust the figure size as needed
-        plt.plot(df["Zeit"], df[col])
+        plt.plot(df["Zeit"], df.iloc[:, col_idx])
         plt.xlabel("Time")
-        plt.ylabel(col)
-        plt.title(f"{col} Over Time")
+        plt.ylabel(col_name)
+        plt.title(f"Column {col_name} Over Time")
         plt.grid(True)
         plt.xticks(rotation=90)  # Rotate x-axis labels for better readability
+        plt.xticks([])  # Hide x-axis tick labels
+        plt.yticks([])  # Hide y-axis tick labels
         plt.tight_layout()
         plt.show()
+
 def plotAll(data_frame):
     num_columns = len(data_frame.columns)
     num_rows = (num_columns + 2) // 3  # Create a grid with 3 columns
@@ -31,14 +35,16 @@ def plotAll(data_frame):
     plt.tight_layout()
     plt.show()
 
-csv_file = "e production=ep sanyo 049=BOL Part 2=Massenalterung=2013-01-25 190910=TBA_BOL_P2_EIS=EIS00001  Format01=EISkanal 07-4.csv"
+
+csv_file = "zyk.csv"
 df = pd.read_csv(csv_file, skiprows=[1])  # Skip the second row with headers
 
 print( df.head())
 
-columns_to_plot = ["VRelativ","AAmplitude","RemTime"]  # Replace with the actual column names you want to plot
+num_rows, num_columns = df.shape
 
-selected_columns = [ 1,2, 3,4, 5]  # Replace with the time column and column indices you want to plot
-#plot(columns_to_plot)
-plotAll(df)
+print(f"Number of rows (length): {num_rows}")
+print(f"Number of columns (width): {num_columns}")
 
+columns_to_plot = [16]  # Replace with the actual column names you want to plot
+plot(columns_to_plot,df)
