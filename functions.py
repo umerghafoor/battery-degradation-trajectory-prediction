@@ -3,6 +3,31 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 import numpy as np
 
+def crop_data_within_time_range(columns_to_crop, df, start_time, end_time):
+    """
+    Crop specified columns of a DataFrame within a specified time range.
+
+    :param columns_to_crop: The `columns_to_crop` parameter is a list of column indices that you want to
+    crop from the DataFrame `df`. Each index corresponds to a specific column in the DataFrame.
+    :param df: The dataframe containing the data to crop.
+    :param start_time: The start time is the beginning of the time range you want to crop. It should be
+    in the same format as the "Zeit" column in your dataframe.
+    :param end_time: The `end_time` parameter specifies the end time of the time range for which you
+    want to crop the data.
+    :return: The cropped DataFrame based on the specified time range.
+    """
+    # Filter data within the specified time range
+    mask = (df["Zeit"] >= start_time) & (df["Zeit"] <= end_time)
+    df_cropped = df[mask]
+    df_cropped.loc[:, "Zeit"] -= start_time
+
+    # Extract specified columns
+    df_cropped = df_cropped.iloc[:, columns_to_crop]
+
+    return df_cropped
+
+
+
 def plot(columns_to_plot, df):
     """
     The function `plot` takes a list of column indices and a DataFrame as input, and plots the specified
@@ -244,3 +269,5 @@ def crop_values(columns, df, start_time, end_time, startvalue, endvalue):
         df_filtered.loc[df_filtered[col_name] > endvalue, col_name] = endvalue
 
     return df_filtered
+
+
