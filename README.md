@@ -33,6 +33,8 @@ pip install pandas matplotlib pandas numpy
 ```
 3. Download and palce data in data folder
     https://publications.rwth-aachen.de/record/818642
+4. place in `data` folder
+5. run `extract data.ipynb`
 
 # Variables
 - AhAkku: Total ampere-hours. With predominant discharge this value becomes negative [Ah]
