@@ -85,6 +85,7 @@ def plot_threshold(columns_to_plot, df, start_time, end_time):
     plt.grid(True)
     plt.legend()
     plt.xticks(rotation=90)  # Rotate x-axis labels for better readability
+    plt.xlim(start_time, end_time)
     #plt.xticks([])  # Hide x-axis tick labels
     #plt.yticks([])  # Hide y-axis tick labels
     plt.tight_layout()
@@ -187,7 +188,7 @@ def print_times_near_threshold(columns_to_plot, df, start_time, end_time, thresh
             value = row.iloc[col_idx]
             if abs(value - threshold) <= tolerance:
                 if not in_tolerance_range:
-                    print(f"{col_name} , {threshold} t = {row['Zeit']}")
+                    print(f"{col_name} , {threshold} t = {row['Zeit']}","Schritt=",row['Schritt'])
                     in_tolerance_range = True
             else:
                 in_tolerance_range = False
@@ -271,3 +272,32 @@ def crop_values(columns, df, start_time, end_time, startvalue, endvalue):
     return df_filtered
 
 
+def filter_by_schritt_and_time(df, start_time, end_time, schritt_values=None):
+    """
+    Filters values in the DataFrame based on specified 'schritt' values and a time range.
+
+    :param df: The DataFrame containing the data to filter.
+    :param start_time: The start time of the time range for filtering.
+    :param end_time: The end time of the time range for filtering.
+    :param schritt_values: A list of 'schritt' values to include in the filter. Default is None.
+
+    :return: A DataFrame containing only the rows that satisfy the specified criteria.
+    """
+
+    # Assuming 'schritt' is the first column, replace 0 with the actual index if it's not the case
+    schritt_mask_1 = df[0] == schritt_values[0]
+    schritt_mask_2 = df[0] == schritt_values[1]
+    schritt_mask = schritt_mask_1 + schritt_mask_2
+    # Filter by time range
+    time_mask = (df['Zeit'] >= start_time) & (df['Zeit'] <= end_time)
+
+    # Combine both masks
+    combined_mask = schritt_mask & time_mask
+
+    # Apply the combined mask to the specific column
+    df.loc[combined_mask, 0] = df.loc[combined_mask, 0]
+
+    # Apply the time range mask to the entire DataFrame
+    filtered_df = df[time_mask]
+
+    return filtered_df
